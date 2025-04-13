@@ -24,14 +24,10 @@ test("each <span> element has a unique key prop", () => {
   errorSpy.mockRestore();
 });
 
+
 test("renders a <span> for each technology passed in as a prop", () => {
-  render(
-    <ProjectItem
-      name={project.name}
-      about={project.about}
-      technologies={project.technologies}
-    />
-  );
+  render(<ProjectItem project={project} />);
+
   for (const technology of project.technologies) {
     const span = screen.queryByText(technology);
     expect(span).toBeInTheDocument();
